@@ -26,7 +26,7 @@ target_metadata = Base.metadata
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-from ..settings import settings
+from app.settings import settings
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from settings import settings
+from app.settings import settings
 from app.endpoints.appointment_router import appointment_router
 
 app = FastAPI(title='Appointment Service')
