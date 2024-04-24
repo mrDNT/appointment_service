@@ -12,13 +12,17 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+
       - name: Prepare integration tests
         run: |
-          sudo apt update
-          sudo apt install -y python3-pip
-          pip install -r requirements.txt
+          sudo docker run --name pg-tests -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:14
+          rm /app/.env
+          echo "POSTGRES_URL=$POSTGRES_URL" > app/.env
           sleep 5
           alembic upgrade head
+        env:
+          POSTGRES_URL: postgresql://postgres:password@localhost:5432/postgres
 
   build-and-push-to-dh:
     name: Build and push to DockerHub
