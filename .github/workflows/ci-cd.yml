@@ -22,15 +22,18 @@ jobs:
           sudo docker run --name pg-tests -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:14
           cd app
           rm .env
-          echo "POSTGRES_URL=postgresql://postgres:password@pg-tests:5432/postgres" > .env
+          touch .env
+          echo "POSTGRES_URL=$POSTGRES_URL
+          " > .env
           cd ..
           sleep 5
           alembic upgrade head
-
+        env:
+          POSTGRES_URL: postgresql://postgres:password@localhost:5432/postgres
       - name: Run integration tests
         run: |
           python3 -m pytest ./test_appointment_repo.py
-
+          
   build-and-push-to-dh:
     name: Build and push to DockerHub
     runs-on: ubuntu-latest

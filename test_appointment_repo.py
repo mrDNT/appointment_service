@@ -8,7 +8,7 @@ from app.repositories.db_appointments_repo import AppointmentsRepo
 from app.repositories.trainers_repo import TrainersRepo
 from app.settings import settings
 
-sleep(2)
+sleep(5)
 
 
 @pytest.fixture()
