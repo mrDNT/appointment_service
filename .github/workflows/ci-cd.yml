@@ -14,12 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Prepare integration tests
+      - name: Prepare unit tests
         run: |
           sudo apt update
           sudo apt install -y python3-pip
           pip install -r requirements.txt
-      - name: Run integration tests
+      - name: Run unit tests
         run: |
           pytest test_appointment_repo.py
           
