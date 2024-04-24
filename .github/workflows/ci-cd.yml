@@ -30,7 +30,7 @@ jobs:
 
       - name: Run integration tests
         run: |
-          pytest ./tests
+          pytest ./test_appointment_repo.py
 
   build-and-push-to-dh:
     name: Build and push to DockerHub
