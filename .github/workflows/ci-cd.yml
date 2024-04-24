@@ -21,8 +21,8 @@ jobs:
           sudo apt install -y python3-pip
           pip install -r requirements.txt
           sudo docker run --name pg-tests -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:14
-          rm /app/.env
-          echo "POSTGRES_URL=$POSTGRES_URL" > app/.env
+          rm ./app/.env
+          echo "POSTGRES_URL=$POSTGRES_URL" > ./app/.env
           sleep 5
           alembic upgrade head
         env:
