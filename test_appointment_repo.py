@@ -6,6 +6,7 @@ from datetime import datetime
 from app.models.appointments import Appointments, AppointmentStatuses
 from app.repositories.db_appointments_repo import AppointmentsRepo
 from app.repositories.trainers_repo import TrainersRepo
+from app.settings import settings
 
 sleep(2)
 
