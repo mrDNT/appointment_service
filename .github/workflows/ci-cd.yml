@@ -15,7 +15,7 @@ jobs:
       - name: Prepare integration tests
         run: |
           sudo docker run --name pg-tests -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:14
-          rm .env
+          rm ./.env
           echo "POSTGRES_URL=$POSTGRES_URL
           " > .env
           sleep 5
