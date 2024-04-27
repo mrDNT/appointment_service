@@ -21,8 +21,8 @@ def create_appointment(appointment_id: UUID, creation_date: datetime, appointmen
         raise HTTPException(400)
 
 @appointment_router.post('/{id}/get')
-def get_appointment_by_id(appointments_service: AppointmentsService = Depends(AppointmentsService)) -> Appointments:
-    return appointments_service.get_appointment_by_id()
+def get_appointment_by_id(id: UUID, appointments_service: AppointmentsService = Depends(AppointmentsService)) -> Appointments:
+    return appointments_service.get_appointment_by_id(id)
 
 @appointment_router.post('/{id}/finish')
 def finish_appointment(id: UUID, appointments_service: AppointmentsService = Depends(AppointmentsService)) -> Appointments:
